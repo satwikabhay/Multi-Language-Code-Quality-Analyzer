@@ -180,6 +180,24 @@ python 5_github_analyzer_multilang.py https://github.com/user/repo
 ## Training Custom Models
 
 ### 1. Data Collection
+
+## Data Sources
+
+Training data was collected from the following open-source repositories:
+
+### Good Code Sources (300 samples)
+- **Python:** [psf/requests](https://github.com/psf/requests), [pallets/flask](https://github.com/pallets/flask)
+- **Java:** [google/guava](https://github.com/google/guava), [iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
+- **C++:** [nlohmann/json](https://github.com/nlohmann/json), [catchorg/Catch2](https://github.com/catchorg/Catch2)
+- **C:** [curl/curl](https://github.com/curl/curl)
+
+### Bad Code Sources (300 samples)
+- Synthetically generated examples using common anti-patterns
+- Algorithm implementations from educational repositories
+- Code samples with intentional quality issues for training
+
+**Note:** The actual repository files are not included in this repo to keep it lightweight. The data collection scripts can be used to regenerate the dataset.
+
 ```bash
 # Clone repositories to cloned_repos/good/ and cloned_repos/bad/
 python 1_collect_multilang_data.py
