@@ -8,41 +8,37 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
-An intelligent code quality prediction system that uses **Machine Learning** to automatically assess code quality across multiple programming languages. Built with Random Forest classification achieving **98.33% accuracy** on a dataset of 600 code samples.
+An intelligent code quality prediction system that uses Machine Learning to automatically assess code quality across multiple programming languages. Built with Random Forest classification achieving **98.33% accuracy** on a dataset of 600 code samples.
 
-**🌐 Try it live:** [code-quality-analyzer.streamlit.app](https://code-quality-analyzer.streamlit.app)
+**Live Application:** [code-quality-analyzer.streamlit.app](https://code-quality-analyzer.streamlit.app)
 
 ---
 
-## ✨ Features
+## Features
 
 - **Multi-Language Support** - Analyzes Python, Java, C++, and C code files
 - **GitHub Integration** - Analyze entire repositories with a single URL
 - **Real-time Analysis** - Instant quality predictions with confidence scores
 - **Visual Reports** - Interactive charts and detailed metrics
 - **Code Recommendations** - Actionable suggestions for improvement
-- **19 Quality Metrics** - Comprehensive feature analysis including:
-  - Code complexity and structure
-  - Documentation coverage
-  - Code smells detection
-  - Function length analysis
+- **19 Quality Metrics** - Comprehensive feature analysis
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-**Try the analyzer now:** [https://code-quality-analyzer.streamlit.app](https://code-quality-analyzer.streamlit.app)
+**Application URL:** [https://code-quality-analyzer.streamlit.app](https://code-quality-analyzer.streamlit.app)
 
-### Quick Test:
-1. Go to "Analyze GitHub Repo"
-2. Paste any public repository URL (e.g., `https://github.com/psf/requests`)
-3. Click "Analyze" and get instant results!
+### Quick Start:
+1. Navigate to "Analyze GitHub Repo"
+2. Enter repository URL (e.g., `https://github.com/psf/requests`)
+3. Click "Analyze" to view results
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
 | Metric | Score |
 |--------|-------|
@@ -52,21 +48,21 @@ An intelligent code quality prediction system that uses **Machine Learning** to 
 | **Precision** | 98.3% |
 | **Recall** | 98.3% |
 
-**Model:** Random Forest Classifier (100 trees, max depth 15)
+**Model Architecture:** Random Forest Classifier (100 trees, max depth 15)
 
 ---
 
-## 🛠️ Tech Stack
+## Technology Stack
 
 - **Machine Learning:** scikit-learn, Random Forest
-- **Web Interface:** Streamlit
+- **Web Framework:** Streamlit
 - **Data Processing:** Pandas, NumPy
 - **Visualizations:** Plotly
 - **API Integration:** GitHub REST API
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Multi-Language-Code-Analyzer/
@@ -80,18 +76,18 @@ Multi-Language-Code-Analyzer/
 ├── 5_github_analyzer_multilang.py      # GitHub integration
 ├── model_multilang/                    # Trained model files
 ├── data_multilang/                     # Training data
-└── requirements.txt                    # Dependencies
+└── requirements.txt                    # Python dependencies
 ```
 
 ---
 
-## 💻 Local Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
 - Git
 
-### Setup
+### Setup Instructions
 
 1. **Clone the repository**
    ```bash
@@ -104,46 +100,49 @@ Multi-Language-Code-Analyzer/
    pip install -r requirements.txt
    ```
 
-3. **Run the web app**
+3. **Run the application**
    ```bash
    streamlit run app.py
    ```
 
-4. **Open in browser**
+4. **Access the application**
    ```
-   http://localhost:8501
+   Open browser to: http://localhost:8501
    ```
 
 ---
 
-## 🎓 How It Works
+## Methodology
 
-### 1. Feature Extraction
-The system analyzes **19 code quality features**:
+### Feature Extraction
+
+The system analyzes 19 code quality features:
 
 **Basic Metrics:**
 - Total lines, blank lines, comment lines
-- Comment ratio, average line length
+- Comment-to-code ratio
+- Average and maximum line length
 
-**Complexity:**
-- Function/class count
+**Complexity Metrics:**
+- Function and class count
 - Maximum indentation depth
-- Control flow structures (if/else, loops)
+- Control flow structures
 
-**Code Smells:**
-- Magic numbers
-- Single-letter variables
-- Very long functions (>50 lines)
+**Code Smell Detection:**
+- Magic number usage
+- Single-letter variable names
+- Long functions (>50 lines)
 - Missing documentation
 
-### 2. Machine Learning
-- **Algorithm:** Random Forest with 100 decision trees
-- **Training:** 80/20 train-test split
-- **Validation:** 5-fold cross-validation
-- **Features:** 19 quantitative metrics
+### Machine Learning Pipeline
 
-### 3. Language Support
-Each language has customized analysis:
+- **Algorithm:** Random Forest with 100 decision trees
+- **Training Split:** 80% training, 20% testing
+- **Validation:** 5-fold cross-validation
+- **Feature Set:** 19 quantitative code metrics
+
+### Language-Specific Analysis
+
 - **Python:** PEP 8 compliance, docstring detection
 - **Java:** Javadoc support, OOP structure analysis
 - **C++:** Doxygen comments, STL usage patterns
@@ -151,143 +150,133 @@ Each language has customized analysis:
 
 ---
 
-## 📈 Usage Examples
+## Usage
 
-### Analyze a GitHub Repository
+### Web Interface
 
-```python
-# Through the web interface:
+**Analyze GitHub Repository:**
 1. Navigate to "Analyze GitHub Repo"
-2. Enter: https://github.com/username/repository
+2. Enter repository URL
 3. Click "Analyze"
-4. View results with quality score, charts, and recommendations
-```
+4. Review quality score and recommendations
 
-### Analyze a Single File
-
-```python
-# Through the web interface:
+**Analyze Single File:**
 1. Navigate to "Analyze File"
-2. Upload your code file (.py, .java, .cpp, .c)
-3. View detailed metrics and suggestions
-```
+2. Upload code file
+3. View detailed metrics
 
-### Command Line Usage
+### Command Line Interface
 
 ```bash
-# Test a single file
-python 4_test_multilang.py path/to/your/file.py
+# Test individual file
+python 4_test_multilang.py path/to/file.py
 
-# Analyze a GitHub repository
+# Analyze GitHub repository
 python 5_github_analyzer_multilang.py https://github.com/user/repo
 ```
 
 ---
 
-## 🔬 Training Your Own Model
+## Training Custom Models
 
-### 1. Collect Data
+### 1. Data Collection
 ```bash
-# Clone good quality repositories to cloned_repos/good/
-# Clone poor quality repositories to cloned_repos/bad/
+# Clone repositories to cloned_repos/good/ and cloned_repos/bad/
 python 1_collect_multilang_data.py
 ```
 
-### 2. Extract Features
+### 2. Feature Extraction
 ```bash
 python 2_extract_features_multilang.py
 ```
 
-### 3. Train Model
+### 3. Model Training
 ```bash
 python 3_train_multilang_model.py
 ```
 
-The trained model will be saved in `model_multilang/`
+Trained model will be saved in `model_multilang/`
 
 ---
 
-## 🎯 Use Cases
+## Applications
 
-- **Code Review Automation** - Pre-screen pull requests
-- **Educational Tool** - Help students learn code quality
-- **Portfolio Analysis** - Assess repository quality
-- **Refactoring Priority** - Identify files needing improvement
-- **Quality Metrics** - Track code quality over time
-
----
-
-## 🚧 Limitations
-
-- Limited to static analysis (doesn't execute code)
-- Trained on 600 samples (primarily C/C++ heavy)
-- GitHub API rate limits (50 files per repository)
-- Binary files and very large files are skipped
+- Code review automation
+- Educational tool for software engineering courses
+- Portfolio and repository quality assessment
+- Refactoring prioritization
+- Code quality tracking over time
 
 ---
 
-## 🔮 Future Enhancements
+## Limitations
 
-- [ ] Support for more languages (JavaScript, Go, Rust)
-- [ ] Real-time collaboration features
-- [ ] Integration with CI/CD pipelines
-- [ ] Historical quality tracking
-- [ ] Custom quality rules configuration
-- [ ] VS Code extension
+- Static analysis only (does not execute code)
+- GitHub API rate limits apply (50 files per repository)
+- Trained primarily on C/C++ samples
+- Binary and very large files are excluded
 
 ---
 
-## 🤝 Contributing
+## Future Enhancements
 
-Contributions are welcome! This is an educational project, but suggestions and improvements are appreciated.
+- Support for additional languages (JavaScript, Go, Rust)
+- CI/CD pipeline integration
+- Historical quality tracking
+- Custom rule configuration
+- IDE extensions
+
+---
+
+## Contributing
+
+Contributions are welcome. To contribute:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit changes (`git commit -m 'Add some improvement'`)
-4. Push to branch (`git push origin feature/improvement`)
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
 5. Open a Pull Request
 
 ---
 
-## 📄 License
+## License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Satwik Abhay**
 
 - GitHub: [@satwikabhay](https://github.com/satwikabhay)
-- Project Link: [Multi-Language-Code-Quality-Analyzer](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer)
+- Project: [Multi-Language-Code-Quality-Analyzer](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer)
 - Live Demo: [code-quality-analyzer.streamlit.app](https://code-quality-analyzer.streamlit.app)
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- **scikit-learn** - Machine learning framework
-- **Streamlit** - Web application framework
-- **Plotly** - Interactive visualizations
-- **GitHub API** - Repository access
+- scikit-learn for the machine learning framework
+- Streamlit for the web application framework
+- Plotly for interactive visualizations
+- GitHub API for repository access
 
 ---
 
-## 📚 References
+## References
 
-1. Allamanis, M., et al. (2014). "Learning natural coding conventions." *ACM SIGSOFT FSE*
-2. Breiman, L. (2001). "Random forests." *Machine Learning, 45(1), 5-32*
-3. Fontana, F. A., et al. (2016). "Comparing machine learning techniques for code smell detection." *Empirical Software Engineering*
+1. Allamanis, M., et al. (2014). "Learning natural coding conventions." ACM SIGSOFT Foundations of Software Engineering
+2. Breiman, L. (2001). "Random forests." Machine Learning, 45(1), 5-32
+3. Fontana, F. A., et al. (2016). "Comparing machine learning techniques for code smell detection." Empirical Software Engineering
 
 ---
 
 <div align="center">
 
-**⭐ Star this repository if you found it helpful!**
+**Star this repository if you found it helpful**
 
-Built with ❤️ using Machine Learning
-
-[Live Demo](https://code-quality-analyzer.streamlit.app) • [Report Bug](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer/issues) • [Request Feature](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer/issues)
+[Live Demo](https://code-quality-analyzer.streamlit.app) | [Report Bug](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer/issues) | [Request Feature](https://github.com/satwikabhay/Multi-Language-Code-Quality-Analyzer/issues)
 
 </div>
